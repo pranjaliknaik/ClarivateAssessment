@@ -24,6 +24,6 @@ ClickOnProQuestSearchBar
         input text    ${txt_ProQuestSearch}      ${searchTerm}
         press keys      ${txt_ProQuestSearch}       RETURN
         sleep    2s
-        capture page screenshot         ../output/AfterProQuestSearch.png
+        capture page screenshot         ../Screenshots/AfterProQuestSearch.png
 
 

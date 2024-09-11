@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.4 on win32)" generated="2024-09-11T22:57:42.102967" rpa="false" schemaversion="5">
+<suite id="s1" name="TestCases" source="P:\Clarivate_Assessment\ClarivateAssessment\TestCases">
+<suite id="s1-s1" name="SearchOnGoogleTest" source="P:\Clarivate_Assessment\ClarivateAssessment\TestCases\SearchOnGoogleTest.robot">
+<kw name="Open My Browser and Launch Application" owner="CommonKeywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:42.501079" level="INFO">Opening browser 'chrome' to base url 'https://www.google.com/'.</msg>
+<arg>${url}</arg>
+<arg>${browserName}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-09-11T22:57:42.501079" elapsed="2.647106"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-09-11T22:57:45.149182" elapsed="0.577330"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:45.727977" level="INFO">Clicking element 'xpath://div[text()='Accept all']'.</msg>
+<arg>${btn_accept}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:45.726512" elapsed="0.208076"/>
+</kw>
+<status status="PASS" start="2024-09-11T22:57:42.500071" elapsed="3.434517"/>
+</kw>
+<test id="s1-s1-t1" name="GoToGoogleAndSearch" line="16">
+<kw name="Enter Search Text and Enter" owner="GoogleSearchKeywords">
+<kw name="Element Should Be Enabled" owner="SeleniumLibrary">
+<arg>${txt_search}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-09-11T22:57:45.945684" elapsed="0.066795"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:46.012479" level="INFO">Typing text 'ProQuest' into text field 'name:q'.</msg>
+<arg>${txt_search}</arg>
+<arg>${searchContent}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:46.012479" elapsed="0.177603"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:46.191080" level="INFO">Sending key(s) ('RETURN',) to name:q element.</msg>
+<msg time="2024-09-11T22:57:46.561917" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2024-09-11T22:57:46.561917" level="INFO">Releasing special key RETURN.</msg>
+<arg>${txt_search}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-09-11T22:57:46.190082" elapsed="1.475011"/>
+</kw>
+<arg>${searchcontent}</arg>
+<status status="PASS" start="2024-09-11T22:57:45.944573" elapsed="1.720520"/>
+</kw>
+<status status="PASS" start="2024-09-11T22:57:45.934588" elapsed="1.731944"/>
+</test>
+<test id="s1-s1-t2" name="GetAllLinkTitles" line="20">
+<kw name="GetAllLinks" owner="GoogleSearchKeywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${links_firstPage}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.669700" elapsed="0.043445"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.754947" level="INFO">${titles} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.2246")&gt;, &lt;selenium.webdr...</msg>
+<var>${titles}</var>
+<arg>${links_firstPage}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.713145" elapsed="0.041802"/>
+</kw>
+<kw name="StoreLinksInTxtFile" owner="GoogleSearchKeywords">
+<kw name="Get Environment Variable" owner="OperatingSystem">
+<msg time="2024-09-11T22:57:47.755976" level="INFO">${home_dir} = C:\Users\prann</msg>
+<var>${home_dir}</var>
+<arg>USERPROFILE</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.755976" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>r'${home_dir}' == ''</arg>
+<arg>${home_dir}=</arg>
+<arg>Get Environment Variable</arg>
+<arg>HOME</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.755976" elapsed="0.000996"/>
+</kw>
+<kw name="Join Path" owner="OperatingSystem">
+<msg time="2024-09-11T22:57:47.758031" level="INFO">${desktop_path} = C:\Users\prann\Desktop</msg>
+<var>${desktop_path}</var>
+<arg>${home_dir}</arg>
+<arg>${folder_name}</arg>
+<doc>Joins the given path part(s) to the given base path.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.756972" elapsed="0.001059"/>
+</kw>
+<kw name="Join Path" owner="OperatingSystem">
+<msg time="2024-09-11T22:57:47.758031" level="INFO">${file_path} = C:\Users\prann\Desktop\AllLinkTitles.txt</msg>
+<var>${file_path}</var>
+<arg>${desktop_path}</arg>
+<arg>${file_name}</arg>
+<doc>Joins the given path part(s) to the given base path.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.758031" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.787007" level="INFO">${title} = ProQuest | Better research, better learning, better insights.</msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.759033" elapsed="0.027974"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2024-09-11T22:57:47.789019" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\prann\Desktop\AllLinkTitles.txt"&gt;C:\Users\prann\Desktop\AllLinkTitles.txt&lt;/a&gt;'.</msg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.788010" elapsed="0.001009"/>
+</kw>
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.787007" elapsed="0.002012"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.2246")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.758031" elapsed="0.030988"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.798343" level="INFO">${title} = Dissertations &amp; Theses</msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.790022" elapsed="0.008321"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2024-09-11T22:57:47.800428" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\prann\Desktop\AllLinkTitles.txt"&gt;C:\Users\prann\Desktop\AllLinkTitles.txt&lt;/a&gt;'.</msg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.798343" elapsed="0.002085"/>
+</kw>
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.798343" elapsed="0.002085"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.2289")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.789019" elapsed="0.011409"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.808676" level="INFO">${title} = Databases</msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.800428" elapsed="0.008248"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2024-09-11T22:57:47.810677" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\prann\Desktop\AllLinkTitles.txt"&gt;C:\Users\prann\Desktop\AllLinkTitles.txt&lt;/a&gt;'.</msg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.809682" elapsed="0.000995"/>
+</kw>
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.808676" elapsed="0.002001"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.2298")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.800428" elapsed="0.010249"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.825218" level="INFO">${title} = Login</msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.811951" elapsed="0.013267"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2024-09-11T22:57:47.827400" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\prann\Desktop\AllLinkTitles.txt"&gt;C:\Users\prann\Desktop\AllLinkTitles.txt&lt;/a&gt;'.</msg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.826309" elapsed="0.001091"/>
+</kw>
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.825218" elapsed="0.002182"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.2307")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.810677" elapsed="0.016723"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.840317" level="INFO">${title} = About - Who We Are</msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.827400" elapsed="0.012917"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2024-09-11T22:57:47.842310" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\prann\Desktop\AllLinkTitles.txt"&gt;C:\Users\prann\Desktop\AllLinkTitles.txt&lt;/a&gt;'.</msg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.841313" elapsed="0.000997"/>
+</kw>
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.840317" elapsed="0.001993"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.2316")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.827400" elapsed="0.015906"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.853041" level="INFO">${title} = ProQuest Central</msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.843306" elapsed="0.009735"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2024-09-11T22:57:47.855156" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\prann\Desktop\AllLinkTitles.txt"&gt;C:\Users\prann\Desktop\AllLinkTitles.txt&lt;/a&gt;'.</msg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.854153" elapsed="0.001003"/>
+</kw>
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.854153" elapsed="0.001003"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.2325")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.843306" elapsed="0.011850"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.861487" level="INFO">${title} = </msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.856152" elapsed="0.005335"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.862676" elapsed="0.000000"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.1787")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.855156" elapsed="0.007520"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.871011" level="INFO">${title} = </msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.863673" elapsed="0.007338"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.871011" elapsed="0.001062"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.1835")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.863673" elapsed="0.008400"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.878492" level="INFO">${title} = </msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.872073" elapsed="0.006419"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.879496" elapsed="0.000000"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.1882")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.872073" elapsed="0.007423"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.887345" level="INFO">${title} = </msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.879496" elapsed="0.007849"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.887345" elapsed="0.000000"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.1927")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.879496" elapsed="0.007849"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.893776" level="INFO">${title} = ProQuest</msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.888344" elapsed="0.005432"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2024-09-11T22:57:47.895928" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\prann\Desktop\AllLinkTitles.txt"&gt;C:\Users\prann\Desktop\AllLinkTitles.txt&lt;/a&gt;'.</msg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.894932" elapsed="0.000996"/>
+</kw>
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.893776" elapsed="0.002152"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.2512")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.887345" elapsed="0.008583"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.904445" level="INFO">${title} = Home - ProQuest Ebook Central</msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.897194" elapsed="0.007251"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2024-09-11T22:57:47.905443" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\prann\Desktop\AllLinkTitles.txt"&gt;C:\Users\prann\Desktop\AllLinkTitles.txt&lt;/a&gt;'.</msg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.904445" elapsed="0.000998"/>
+</kw>
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.904445" elapsed="0.000998"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.2560")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.895928" elapsed="0.009515"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.913708" level="INFO">${title} = Home - ProQuest Platform</msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.906438" elapsed="0.007270"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2024-09-11T22:57:47.915211" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\prann\Desktop\AllLinkTitles.txt"&gt;C:\Users\prann\Desktop\AllLinkTitles.txt&lt;/a&gt;'.</msg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.913708" elapsed="0.001503"/>
+</kw>
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.913708" elapsed="0.001503"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.2608")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.905443" elapsed="0.009768"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.922483" level="INFO">${title} = ProQuest Dissertations &amp; Theses Citation Index</msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.916477" elapsed="0.006006"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2024-09-11T22:57:47.924536" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\prann\Desktop\AllLinkTitles.txt"&gt;C:\Users\prann\Desktop\AllLinkTitles.txt&lt;/a&gt;'.</msg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.923532" elapsed="0.001004"/>
+</kw>
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.922483" elapsed="0.002053"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.2658")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.916477" elapsed="0.008059"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.930980" level="INFO">${title} = ProQuest, Part of Clarivate | London</msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.924536" elapsed="0.006444"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2024-09-11T22:57:47.933014" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\prann\Desktop\AllLinkTitles.txt"&gt;C:\Users\prann\Desktop\AllLinkTitles.txt&lt;/a&gt;'.</msg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.931975" elapsed="0.001039"/>
+</kw>
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.930980" elapsed="0.002034"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.2704")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.924536" elapsed="0.008478"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:47.941307" level="INFO">${title} = Guide to using ProQuest databases - London</msg>
+<var>${title}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.934010" elapsed="0.007297"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Append To File" owner="OperatingSystem">
+<msg time="2024-09-11T22:57:47.943299" level="INFO" html="true">Appended to file '&lt;a href="file://C:\Users\prann\Desktop\AllLinkTitles.txt"&gt;C:\Users\prann\Desktop\AllLinkTitles.txt&lt;/a&gt;'.</msg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.942303" elapsed="0.000996"/>
+</kw>
+<arg>'${title.strip()}' != ''</arg>
+<arg>Append To File</arg>
+<arg>${file_path}</arg>
+<arg>${title}\n</arg>
+<arg>encoding=UTF-8</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.941307" elapsed="0.001992"/>
+</kw>
+<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="9f5a52733a6cca6d85bb82a48e9c0b93", element="f.E070AD431898440FD98CEFE1AD22DB07.d.2E622F3E7F602AA26B2D6F0AB6C79CB4.e.2750")&gt;</var>
+<status status="PASS" start="2024-09-11T22:57:47.934010" elapsed="0.009289"/>
+</iter>
+<var>${element}</var>
+<value>@{titles}</value>
+<status status="PASS" start="2024-09-11T22:57:47.758031" elapsed="0.185268"/>
+</for>
+<arg>${titles}</arg>
+<status status="PASS" start="2024-09-11T22:57:47.755976" elapsed="0.187323"/>
+</kw>
+<status status="PASS" start="2024-09-11T22:57:47.668698" elapsed="0.275672"/>
+</kw>
+<status status="PASS" start="2024-09-11T22:57:47.667532" elapsed="0.276838"/>
+</test>
+<test id="s1-s1-t3" name="OpenProQuestSiteAndSearch" line="24">
+<kw name="ClickOnProQuestLink" owner="ProQuestSearchKeywords">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${link_proQuestPage}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-09-11T22:57:47.945560" elapsed="0.113572"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:48.060133" level="INFO">Clicking link 'xpath:(//div[@id='search']//a)[1]'.</msg>
+<arg>${link_proQuestPage}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:48.060133" elapsed="0.881046"/>
+</kw>
+<status status="PASS" start="2024-09-11T22:57:47.944370" elapsed="0.996809"/>
+</kw>
+<kw name="RejectTheCookies" owner="ProQuestSearchKeywords">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${btn_RejectAll}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-09-11T22:57:48.942254" elapsed="0.271579"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:49.214851" level="INFO">Clicking button 'id:onetrust-reject-all-handler'.</msg>
+<arg>${btn_RejectAll}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:49.214851" elapsed="0.073943"/>
+</kw>
+<status status="PASS" start="2024-09-11T22:57:48.941179" elapsed="0.347615"/>
+</kw>
+<kw name="ClickOnProQuestSearchBar" owner="ProQuestSearchKeywords">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${txt_ProQuestSearch}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-09-11T22:57:49.288794" elapsed="0.023889"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:49.312683" level="INFO">Typing text 'QA' into text field 'id:searchTerm'.</msg>
+<arg>${txt_ProQuestSearch}</arg>
+<arg>${searchTerm}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-11T22:57:49.312683" elapsed="0.093075"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:49.407125" level="INFO">Sending key(s) ('RETURN',) to id:searchTerm element.</msg>
+<msg time="2024-09-11T22:57:49.706102" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2024-09-11T22:57:49.706102" level="INFO">Releasing special key RETURN.</msg>
+<arg>${txt_ProQuestSearch}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-09-11T22:57:49.405758" elapsed="0.306120"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-11T22:57:51.713922" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-11T22:57:49.713377" elapsed="2.000545"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-09-11T22:57:51.850719" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../output/AfterProQuestSearch.png"&gt;&lt;img src="../output/AfterProQuestSearch.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>../output/AfterProQuestSearch.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-09-11T22:57:51.713922" elapsed="0.137793"/>
+</kw>
+<status status="PASS" start="2024-09-11T22:57:49.288794" elapsed="2.562921"/>
+</kw>
+<status status="PASS" start="2024-09-11T22:57:47.944370" elapsed="3.907345"/>
+</test>
+<kw name="Close My Broswers" owner="CommonKeywords" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2024-09-11T22:57:51.852713" elapsed="2.257510"/>
+</kw>
+<status status="PASS" start="2024-09-11T22:57:51.852713" elapsed="2.257510"/>
+</kw>
+<status status="PASS" start="2024-09-11T22:57:42.147995" elapsed="11.962228"/>
+</suite>
+<status status="PASS" start="2024-09-11T22:57:42.106757" elapsed="12.005420"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="TestCases">TestCases</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s1" name="SearchOnGoogleTest">TestCases.SearchOnGoogleTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
