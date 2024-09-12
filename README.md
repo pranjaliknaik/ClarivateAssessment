@@ -26,7 +26,7 @@ To run this automation project, the following components are required:
 4. **Webdriver**: A browser-specific WebDriver (ChromeDriver, GeckoDriver, etc.) for browser automation.
 
 ### Supported Browsers:
-- **Google Chrome** (Tested with Chrome version 90+)
+- **Google Chrome** (Tested with Chrome version 128+)
 - **Mozilla Firefox** (Optional, depending on your test setup)
 
 ---
