@@ -98,7 +98,7 @@ robot -d Results TestCases/
 ```
 
 This command:
-- Executes all .robot files in the tests/ directory.
+- Executes all .robot files in the TestCases/ directory.
 - Stores the results, logs, and screenshots in the Results/ directory.
 
 ### 2. Test Output
