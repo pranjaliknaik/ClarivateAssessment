@@ -5,7 +5,7 @@
 2. [Prerequisites](#prerequisites)
 3. [Installation Instructions](#installation-instructions)
 4. [Test Execution Instructions](#test-execution-instructions)
-5. [Reporting](#reporting)
+5. [Results](#results)
 
 ---
 
@@ -110,7 +110,7 @@ After the tests have completed, you can find the following files in the Results/
 
 ---
 
-## Reporting
+## Results
 After executing the tests, the Results/ folder will contain the following important files:
 
 - **log.html**: Detailed log of test execution.
@@ -120,4 +120,9 @@ You can open these HTML files in any browser to view the test details.
 
 - Screenshots captured during the test are stored in the Screenshots/ folders
 - These screenshots are automatically included in log.html and report.html
+
+The Text file that contains the list of titles of all results on the first page will be stored 
+on the Desktop. 
+
+For eg: **C:/Users/YourUser/Desktop**
 
