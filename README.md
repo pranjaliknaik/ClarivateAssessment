@@ -2,10 +2,11 @@
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Prerequisites](#prerequisites)
-3. [Installation Instructions](#installation-instructions)
-4. [Test Execution Instructions](#test-execution-instructions)
-5. [Results](#results)
+2. [TechStack Used](#techstack-used)
+3. [Prerequisites](#prerequisites)
+4. [Installation Instructions](#installation-instructions)
+5. [Test Execution Instructions](#test-execution-instructions)
+6. [Results](#results)
 
 ---
 
@@ -17,6 +18,10 @@ This repository contains automated tests built using **Robot Framework** and **S
 - **Task 2**: Open the ProQuest website from the search results, search for "QA" in the top navigation bar, and take a screenshot of the page.
 
 ---
+## TechStack Used
+
+![Robot Framework](https://img.shields.io/badge/robot%20framework-000000?style=for-the-badge&logo=robot-framework&logoColor=white) ![Selenium](https://img.shields.io/badge/-selenium-%43B02A?style=for-the-badge&logo=selenium&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![PyCharm](https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=black&color=black&labelColor=green) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Google Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?style=for-the-badge&logo=GoogleChrome&logoColor=white) ![Firefox](https://img.shields.io/badge/Firefox-FF7139?style=for-the-badge&logo=Firefox-Browser&logoColor=white) ![Windows 11](https://img.shields.io/badge/Windows%2011-%230079d5.svg?style=for-the-badge&logo=Windows%2011&logoColor=white)
+
 
 ## Prerequisites
 To run this automation project, the following components are required:
